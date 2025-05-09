@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صالة باور جيم الرياضية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 1em 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav .logo img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+        nav .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 30px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #cccccc;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x800.png?text=Power+Gym+Background') no-repeat center center/cover;
+            /* Replace placeholder with an actual gym image if available, or a sleek black/white abstract background */
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.5em;
+            font-weight: 900;
+            animation: slideInFromTop 1s ease-out 0.5s backwards;
+        }
+
+        .hero-section .highlight {
+            color: #ffffff; /* Yellow was requested, but changed to white for black/white theme */
+            /* Consider a subtle text-shadow if more emphasis is needed */
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+            animation: slideInFromBottom 1s ease-out 0.7s backwards;
+        }
+
+        .cta-button {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            border: 2px solid #000000;
+            animation: pulse 2s infinite ease-in-out 1s;
+        }
+
+        .cta-button:hover {
+            background-color: #000000;
+            color: #ffffff;
+            transform: translateY(-3px);
+            border: 2px solid #ffffff;
+            animation-play-state: paused;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eeeeee;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+        }
+
+        .content-section h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            font-weight: 900;
+            position: relative;
+        }
+        .content-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #000000;
+            margin: 10px auto 0;
+        }
+
+        .about-content, .contact-content {
+            font-size: 1.2em;
+            text-align: justify;
+        }
+        .about-content p, .contact-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .alt-bg {
+            background-color: #f9f9f9; /* Very light grey for subtle contrast */
+            padding-left: 20px; 
+            padding-right: 20px;
+            margin-left: -20px; /* Extend to full width if parent has padding */
+            margin-right: -20px;
+        }
+
+        .pricing-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .price-card {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .price-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .price-card .price-amount {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #000000;
+            margin: 20px 0;
+        }
+
+        .price-card .small-text {
+            font-size: 0.9em;
+            color: #555555;
+        }
+        .contact-content a {
+            color: #000000;
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .contact-content a:hover {
+            color: #555555;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1.2em;
+            }
+            .content-section h2 {
+                font-size: 2em;
+            }
+            .price-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/logo.png" alt="شعار باور جيم">
+            </div>
+            <ul>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#pricing">الأسعار</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero-section">
+        <h1>مرحباً بك في <span class="highlight">باور جيم</span></h1>
+        <p>وجهتك الأولى للقوة واللياقة البدنية</p>
+        <a href="#pricing" class="cta-button">اكتشف عروضنا</a>
+    </div>
+
+    <main>
+        <section id="about" class="content-section">
+            <h2>من نحن؟</h2>
+            <div class="about-content">
+                <p>صالات القوة الرياضية - Power Gym هي مجموعة صالات رياضية تتواجد في عدة مدن تشمل الأحساء، الدمام، الخبر، والقطيف. تأسست الصالة منذ 33 عاماً وتقدم خدمات رياضية متنوعة لعملائها.</p>
+                <p>نحن ملتزمون بتوفير بيئة رياضية محفزة ومجهزة بأحدث الأجهزة لمساعدتك على تحقيق أهدافك الصحية والبدنية. نسعى دائمًا لتقديم أفضل تجربة لروادنا من خلال فريق عمل محترف وبرامج تدريبية متطورة تناسب جميع المستويات.</p>
+            </div>
+        </section>
+
+        <section id="pricing" class="content-section alt-bg">
+            <h2>أسعارنا وعروضنا</h2>
+            <div class="pricing-content">
+                <div class="price-card">
+                    <h3>عرض خاص ومميز</h3>
+                    <p>اشتراك لمدة 3 أشهر بالإضافة إلى 3 أشهر مجانية تمامًا!</p>
+                    <p class="price-amount">يبدأ من 1300 ريال</p>
+                    <p class="small-text">*تطبق الشروط والأحكام. العرض لفترة محدودة.</p>
+                </div>
+                 <!-- يمكن إضافة المزيد من بطاقات الأسعار هنا إذا توفرت -->
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>تواصل معنا</h2>
+            <div class="contact-content">
+                <p>للاستفسارات والحجوزات، أو لمعرفة المزيد عن برامجنا التدريبية، لا تتردد في التواصل معنا عبر الوسائل التالية:</p>
+                <p><strong>الهاتف المباشر:</strong> <a href="tel:0544477777">0544477777</a></p>
+                <p><strong>فروعنا متواجدة في:</strong> الأحساء - الدمام - الخبر - القطيف.</p>
+                <p>تابعونا على حسابنا في إنستغرام للاطلاع على آخر التحديثات، النصائح الرياضية، والعروض الحصرية: <a href="https://www.instagram.com/powergym.sa/" target="_blank" rel="noopener noreferrer">powergym.sa@</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 صالة باور جيم الرياضية. جميع الحقوق محفوظة. تصميم وتطوير بواسطة فريق Manus.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Smooth scrolling for CTA button
+        document.querySelectorAll('.cta-button[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in sections on scroll
+        const sections = document.querySelectorAll('.content-section');
+        const observerOptions = {
+            root: null, // relative to document viewport 
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // observer.unobserve(entry.target); // Optional: unobserve after animation
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Simple parallax for hero (optional, can be enhanced)
+        window.addEventListener('scroll', function() {
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                let offset = window.pageYOffset;
+                heroSection.style.backgroundPositionY = offset * 0.3 + 'px';
+            }
+        });
+
+    </script>
+</body>
+</html>
