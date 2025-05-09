@@ -1,252 +1,219 @@
 /* Reset & Base */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Cairo', sans-serif;
-    line-height: 1.6;
-    background-color: #fff;
-    color: #111;
-    direction: rtl;
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #111;
+  direction: rtl;
 }
 
 /* Container */
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* Header */
 header {
-    background-color: #000;
-    padding: 1rem 0;
+  background-color: #000;
+  padding: 1rem 0;
 }
 
 .logo img {
-    height: 50px;
+  height: 50px;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
 .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 nav.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Hero Section */
 .hero {
-    position: relative;
-    background: url('hero_background.jpg') center center/cover no-repeat;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    color: #fff;
+  position: relative;
+  background: url('hero_background.jpg') center center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
 }
 
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 .hero-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .btn-primary {
-    background-color: #ffcc00;
-    color: #000;
+  background-color: #ffcc00;
+  color: #000;
 }
 
 .btn-secondary {
-    background-color: #000;
-    color: #fff;
+  background-color: #000;
+  color: #fff;
 }
 
 .highlight-yellow {
-    color: #ffcc00;
+  color: #ffcc00;
 }
 
-/* About Section */
+/* ABOUT SECTION */
 .about-section {
-    position: relative;
-    padding: 5rem 0;
-    background-color: #fff;
+  padding: 5rem 0;
 }
 
 .about-content-overlay {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
+  position: relative;
+  padding: 4rem 2rem;
+  background-image: url('about_us_image.png');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.about-bg-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.1;
-    z-index: 1;
+/* Semi-transparent white overlay for readability */
+.about-content-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 1;
 }
 
 .about-text {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 8px;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.8;
 }
 
+/* Section Titles */
 .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
 }
 
-/* Pricing Section */
+/* PRICING SECTION */
 .alt-bg {
-    background-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 
 .pricing-section {
-    padding: 5rem 0;
+  padding: 5rem 0;
 }
 
 .pricing-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .price-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 2rem;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.price-card-header h3 {
-    margin-bottom: 1rem;
-}
-
-.price-description {
-    margin: 1rem 0;
-}
-
-.price-amount {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.features-list {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-.features-list li {
-    margin-bottom: 0.5rem;
-}
-
-.price-card-footer {
-    font-size: 0.875rem;
-    color: #666;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 5rem 0;
-    background-color: #fff;
+  padding: 5rem 0;
 }
 
 .contact-info {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 10px;
-    line-height: 2;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 10px;
+  line-height: 2;
 }
 
 .contact-link {
-    color: #ffcc00;
-    text-decoration: none;
+  color: #ffcc00;
+  text-decoration: none;
 }
 
 .social-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Footer */
 footer {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .about-text {
-        padding: 1rem;
-    }
-
-    .price-card {
-        width: 100%;
-    }
+  .nav-links {
+    display: none;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .about-content-overlay {
+    padding: 2rem 1rem;
+  }
+  .price-card {
+    width: 100%;
+  }
 }
